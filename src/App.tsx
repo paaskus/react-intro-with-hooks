@@ -1,8 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Hooks, { ClassComponent } from "./Hooks";
 
 const App: React.FC = () => {
+  const [show, setShow] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(false);
+    }, 5000);
+  });
   return (
     <div className="App">
       <header className="App-header">
@@ -19,8 +26,10 @@ const App: React.FC = () => {
           Learn React
         </a>
       </header>
+      {show && <Hooks />}
+      <ClassComponent />
     </div>
   );
-}
+};
 
 export default App;
